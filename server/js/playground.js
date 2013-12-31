@@ -368,17 +368,13 @@ function main(WSUrl) {
     $('#buttonClient').click(function () {
         createKey("client", function (x) {$('#secret-client').html(_.escape(WSUrl + "/ws/client/" + x))}, function () {alert("Could not get client endpoint")})
     });
-    
+
     $('#simulateButton').click(function () {
         $('#simulator').show();
         console.log('simulate button is clicked');
-        console.log(editor.getValue());
-        //$('#simulation').contents().find('html').html(editor.getValue());
-        // I set src so that the styling of body is obeyed 
-        var WSScript = "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js\"></script>" +
-        "<script src=\"/static/simulator.js\"></script>";
-        document.getElementById('simulation').src = "data:text/html;charset=utf-8," + escape(replaceAll('raw.github', 'rawgithub', WSScript+editor.getValue()));
+        simulatorUrl = createKey("client", function (x) {$('#simulation')[0].contentWindow.start(WSUrl + "/ws/glass/" + x)}, function () {alert("Could not get client endpoint")})
     });
+
     $('#gestureAgain').click(function() { 
       onGestureCallback = $("#simulation")[0].contentWindow.WS.getGestureCallbacks()['onGesture'];
       $("#simulation")[0].contentWindow[onGestureCallback]($('#gestures option:selected').text());
