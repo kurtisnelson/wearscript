@@ -31,6 +31,12 @@ type PlaygroundTemplate struct {
 	WidgetUrl string
 }
 
+func Simulator(w http.ResponseWriter, req *http.Request) {
+    script := req.URL.Query().Get("script")
+    w.Header().Set("X-XSS-Protection", "0")
+    fmt.Fprintf(w, script)
+}
+
 func PlaygroundServer(w http.ResponseWriter, req *http.Request) {
 	userId, err := userID(req)
 	if userId == "" || err != nil {
@@ -210,6 +216,7 @@ func main() {
 	}
 	m := pat.New()
 	m.Get("/static/{path}", http.HandlerFunc(StaticServer))
+    m.Get("/simulator", http.HandlerFunc(Simulator))
 	m.Post("/setup", http.HandlerFunc(SetupHandler))
 	m.Post("/user/key/{type}", http.HandlerFunc(SecretKeySetupHandler))
 

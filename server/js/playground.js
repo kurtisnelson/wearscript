@@ -372,7 +372,13 @@ function main(WSUrl) {
     $('#simulateButton').click(function () {
         $('#simulator').show();
         console.log('simulate button is clicked');
-        simulatorUrl = createKey("ws", function (x) {$('#simulation')[0].contentWindow.start(WSUrl + "/ws/glass/" + x)}, function () {alert("Could not get client endpoint")})
+        //simulatorUrl = createKey("ws", function (x) {$('#simulation')[0].contentWindow.start(WSUrl + "/ws/glass/" + x)}, function () {alert("Could not get client endpoint"); console.log('client: '+ WSUrl + "/ws/glass/" + x);});
+        //$('#simulation').contents().find('container').html(editor.getValue());
+        theScript = '<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script><script src="/static/reconnecting-websocket.min.js"></script> <script src="/static/msgpack.js"></script><script src="/static/simulator.js"></script>' + editor.getValue();
+        $('#simulation').attr("src", "/simulator?script="+encodeURIComponent(theScript));
+        simulatorUrl = createKey("ws", function (x) {$('#simulation')[0].contentWindow.start(WSUrl + "/ws/glass/" + x)}, function () {alert("Could not get client endpoint"); console.log('client: '+ WSUrl + "/ws/glass/" + x);});
+        console.log($('#simulation').attr("src"));
+        //console.log($('#simulation').contents().find('html').html());
     });
 
     $('#gestureAgain').click(function() { 
