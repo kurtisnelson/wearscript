@@ -372,7 +372,6 @@ function main(WSUrl) {
     $('#simulateButton').click(function () {
         $('#simulator').show();
         console.log('simulate button is clicked');
-        
         //simulatorUrl = createKey("ws", function (x) {$('#simulation')[0].contentWindow.start(WSUrl + "/ws/glass/" + x)}, function () {alert("Could not get client endpoint"); console.log('client: '+ WSUrl + "/ws/glass/" + x);});
         //$('#simulation').contents().find('container').html(editor.getValue());
         theScript = '<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script><script src="/static/reconnecting-websocket.min.js"></script> <script src="/static/msgpack.js"></script><script src="/static/simulator.js"></script>' + editor.getValue();
@@ -394,7 +393,7 @@ function main(WSUrl) {
       $("#simulation")[0].contentWindow[onGestureCallback](valueSelected);
       console.log('gesture: '+valueSelected);
     });
-    //$("#simulation")[0].contentWindow.myFunction();
+
     editor = CodeMirror.fromTextArea(document.getElementById("script"), {
         lineNumbers: true,
         styleActiveLine: true,
