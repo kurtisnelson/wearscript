@@ -1,11 +1,11 @@
-package com.dappervision.wearscript.ui;
+package com.dappervision.glass.wearscript.controller;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.dappervision.wearscript.Utils;
 import com.dappervision.wearscript.events.ShutdownEvent;
@@ -13,7 +13,6 @@ import com.dappervision.wearscript.events.ShutdownEvent;
 public class SetupActivity extends Activity {
     private static final String TAG = "SetupActivity";
     private static final int REQUEST_SCAN = 0;
-    private static final int REQUEST_INSTALL = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +23,7 @@ public class SetupActivity extends Activity {
             Intent intent = new Intent("com.google.zxing.client.android.SCAN");
             startActivityForResult(intent, REQUEST_SCAN);
         } else {
-            openPlayStore();
+            Toast.makeText(this, "This requires the ZXing scanner", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -39,22 +38,9 @@ public class SetupActivity extends Activity {
                 String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
                 Log.i(TAG, "QR: " + contents + " Format: " + format);
                 Utils.SaveData(contents.getBytes(), "", false, "qr.txt");
-            } else if (resultCode == RESULT_CANCELED) {
             }
             finish();
-        } else if (requestCode == REQUEST_INSTALL) {
-            if(isZXingInstalled()) {
-                Intent startIntent = new Intent("com.google.zxing.client.android.SCAN");
-                startActivityForResult(startIntent, REQUEST_SCAN);
-            } else {
-                openPlayStore();
-            }
         }
-    }
-
-    private void openPlayStore() {
-        Intent downloadZxing = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.google.zxing.client.android"));
-        startActivityForResult(downloadZxing, REQUEST_INSTALL);
     }
 
     private boolean isZXingInstalled() {

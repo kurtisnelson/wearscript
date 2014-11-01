@@ -19,12 +19,11 @@ package com.dappervision.android.wearscript;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 
 import com.dappervision.android.wearscript.controller.MobileScriptActivity;
+import com.dappervision.android.wearscript.controller.SetupActivity;
 import com.dappervision.wearscript.launcher.ApplicationInfo;
 import com.dappervision.wearscript.launcher.WearScriptInfo;
-import com.dappervision.wearscript.ui.SetupActivity;
 import com.dappervision.wearscript.ui.StopActivity;
 
 /**

@@ -25,7 +25,7 @@ import com.dappervision.glass.wearscript.controller.GlassScriptActivity;
 import com.dappervision.wearscript.Utils;
 import com.dappervision.wearscript.launcher.ApplicationInfo;
 import com.dappervision.wearscript.launcher.WearScriptInfo;
-import com.dappervision.wearscript.ui.SetupActivity;
+import com.dappervision.glass.wearscript.controller.SetupActivity;
 import com.dappervision.wearscript.ui.StopActivity;
 
 /**

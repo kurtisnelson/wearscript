@@ -29,11 +29,16 @@
             android:theme="@android:style/Theme.DeviceDefault.NoActionBar.Fullscreen"/>
 
         <activity
-            android:name="com.dappervision.wearscript.ui.QRActivity"
-            android:configChanges="keyboardHidden"
-            android:label="WearScript QR"/>
+            android:name=".controller.QRActivity"
+            android:label="@string/qr">
+            <intent-filter>
+                <action android:name="com.dappervision.wearscript.SCAN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity
-            android:name="com.dappervision.wearscript.ui.SetupActivity"
+            android:name=".controller.SetupActivity"
             android:clearTaskOnLaunch="true"
             android:exported="true"
             android:label="@string/setup"/>

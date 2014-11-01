@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "21.0.2"
+    buildToolsVersion "21.1"
 
     defaultConfig {
         applicationId "com.dappervision.android.wearscript"
@@ -32,5 +32,6 @@ android {
 
 dependencies {
     compile project(":core")
+    compile 'com.google.zxing:android-integration:3.1.0'
     compile "com.android.support:appcompat-v7:21.0.0"
 }

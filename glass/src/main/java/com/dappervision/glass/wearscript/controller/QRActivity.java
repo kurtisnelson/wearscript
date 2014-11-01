@@ -1,4 +1,4 @@
-package com.dappervision.wearscript.ui;
+package com.dappervision.glass.wearscript.controller;
 
 import android.app.Activity;
 import android.content.Intent;

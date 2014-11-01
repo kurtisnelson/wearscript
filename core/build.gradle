@@ -9,7 +9,7 @@ repositories {
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "21.0.2"
+    buildToolsVersion "21.1"
 
     defaultConfig {
         minSdkVersion 18
@@ -32,7 +32,7 @@ dependencies {
     compile 'com.crittercism:crittercism-android-agent:4.5.3'
     compile 'de.greenrobot:eventbus:2.2.0'
     compile 'com.polysfactory.lib.glass.bluetooth:glass-bluetooth:0.1.2'
-    compile 'com.radiusnetworks:AndroidIBeaconLibrary:0.7.6@aar'
+    compile 'com.radiusnetworks:AndroidIBeaconLibrary:0.7.6'
     compile 'org.msgpack:msgpack:0.6.9'
     compile files('libs/android-websockets.jar')
     compile files('libs/commons-codec-1.6.jar')

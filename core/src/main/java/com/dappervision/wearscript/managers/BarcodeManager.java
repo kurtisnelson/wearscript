@@ -6,7 +6,6 @@ import android.util.Base64;
 import com.dappervision.wearscript.BackgroundService;
 import com.dappervision.wearscript.events.BarcodeEvent;
 import com.dappervision.wearscript.events.CallbackRegistration;
-import com.dappervision.wearscript.ui.QRActivity;
 
 public class BarcodeManager extends Manager {
     public static String QR_CODE = "QR_CODE";
@@ -32,7 +31,8 @@ public class BarcodeManager extends Manager {
     }
 
     public void startActivity() {
-        Intent dialogIntent = new Intent(service.getBaseContext(), QRActivity.class);
+        Intent dialogIntent = new Intent();
+        dialogIntent.setAction("com.dappervision.wearscript.SCAN");
         dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         service.getApplication().startActivity(dialogIntent);
     }
