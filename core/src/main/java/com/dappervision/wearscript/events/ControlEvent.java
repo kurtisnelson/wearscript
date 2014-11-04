@@ -8,15 +8,9 @@ public class ControlEvent {
     public static final String INIT = "INIT";
 
     String command;
-    boolean adb;
 
-    public ControlEvent(String command, boolean adb) {
+    public ControlEvent(String command) {
         this.command = command;
-        this.adb = adb;
-    }
-
-    public boolean isAdb() {
-        return adb;
     }
 
     public String getCommand() {

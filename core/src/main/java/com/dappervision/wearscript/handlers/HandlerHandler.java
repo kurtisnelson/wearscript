@@ -38,6 +38,5 @@ public class HandlerHandler {
         if(!HardwareDetector.hasGDK){
             handlers.add(new ControlHandler());
         }
-        handlers.add(new AdbHandler());
     }
 }

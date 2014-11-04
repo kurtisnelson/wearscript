@@ -1064,10 +1064,8 @@ function WearScript() {
     this.pebbleVibe = function(type) {
         WSRAW.pebbleVibe(type);
     }
-    this.control = function(cmd, adb) {
-        if(!adb)
-            adb = false;
-        WSRAW.control(cmd, adb);
+    this.control = function(cmd) {
+        WSRAW.control(cmd);
     }
     this.myoPair = function (callback) {
         callback = this._funcfix(callback);

@@ -522,8 +522,8 @@ public abstract class WearScript {
     }
 
     @JavascriptInterface
-    public void control(String event, boolean adb){
-        Utils.eventBusPost(new ControlEvent(event, adb));
+    public void control(String event){
+        Utils.eventBusPost(new ControlEvent(event));
     }
 
     public abstract void picarus(String model, String input, String callback);
